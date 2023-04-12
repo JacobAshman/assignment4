@@ -14,10 +14,11 @@ void main(int argc, char **argv) {
     FILE *f = fopen(inputFileName, "r"); //reads input file
     FILE *out = fopen(outputFileName, "w"); //writes in output file
 
-    double power(double speed, double coef, double dragArea){
+    //da func will move later
+    double power(double speed, double coef, double dragArea) { 
         double force = coef * .5 * 1.18 * speed * speed *dragArea;
         return force * speed;
-    }
+    } 
 
     char buffer[100];
     char *line = fgets(buffer, 100, f);
@@ -27,8 +28,6 @@ void main(int argc, char **argv) {
         if(buffer[n-1] == '\n'){
             buffer[n-1] = '\0';
         }
-        
-        lineNum = 1 + lineNum;
         char *name = strtok(line, ",");
         char *coefficientToken = strtok(NULL, ",");
         char *areaToken = strtok(NULL, ",");   
@@ -37,13 +36,12 @@ void main(int argc, char **argv) {
         if(area != -1) {
             fprintf(out, "%s,%s,%s,%.2f,%.2f,%.2f\n", name, coefficientToken, areaToken, power(26.8224, coefficient, area),
             power(31.2928, coefficient, area), power(35.7632, coefficient, area));
-            printf("%s", areaToken);
         }
 
         line = fgets(buffer, 100, f);
-
+        lineNum = 1 + lineNum; 
     }
-    printf("Number of lines %d\n", lineNum);
+    printf("--- completed reading %d lines of data\n", lineNum);
 
     fclose(f);
     fclose(out);  //closes both files
