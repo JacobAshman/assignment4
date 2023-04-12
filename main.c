@@ -7,7 +7,10 @@
 
 void main(int argc, char **argv) {
 
-    FILE *f = fopen("AutomobilesInputData.csv", "r");
+    char *inputFileName = argv[1];
+    printf("Processing text file [%s] . . . \n", inputFileName);
+
+    FILE *f = fopen(inputFileName, "r");
     FILE *out = fopen("list.csv", "w");
 
     double power(double speed, double coef, double dragArea){
