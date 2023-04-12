@@ -8,11 +8,11 @@
 void main(int argc, char **argv) {
 
     char *inputFileName = argv[1];
-    char *outputFileName = argv[2];
+    char *outputFileName = argv[2];  //allows input and output files to be called in ./a.out command
     printf("Processing text file [%s] . . . \n", inputFileName);
 
-    FILE *f = fopen(inputFileName, "r");
-    FILE *out = fopen(outputFileName, "w");
+    FILE *f = fopen(inputFileName, "r"); //reads input file
+    FILE *out = fopen(outputFileName, "w"); //writes in output file
 
     double power(double speed, double coef, double dragArea){
         double force = coef * .5 * 1.18 * speed * speed *dragArea;
@@ -46,7 +46,7 @@ void main(int argc, char **argv) {
     printf("Number of lines %d\n", lineNum);
 
     fclose(f);
-    fclose(out);
+    fclose(out);  //closes both files
 
 
 }
