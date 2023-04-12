@@ -8,10 +8,11 @@
 void main(int argc, char **argv) {
 
     char *inputFileName = argv[1];
+    char *outputFileName = argv[2];
     printf("Processing text file [%s] . . . \n", inputFileName);
 
     FILE *f = fopen(inputFileName, "r");
-    FILE *out = fopen("list.csv", "w");
+    FILE *out = fopen(outputFileName, "w");
 
     double power(double speed, double coef, double dragArea){
         double force = coef * .5 * 1.18 * speed * speed *dragArea;
