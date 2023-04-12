@@ -23,6 +23,7 @@ void main(int argc, char **argv) {
         if(buffer[n-1] == '\n'){
             buffer[n-1] = '\0';
         }
+        
         lineNum = 1 + lineNum;
         char *name = strtok(line, ",");
         char *coefficientToken = strtok(NULL, ",");
