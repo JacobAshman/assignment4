@@ -5,6 +5,7 @@
 #include <math.h>
 #include <limits.h>
 
+#include "functions.c"
 
 typedef struct {
     char name[100];
@@ -25,7 +26,7 @@ void main(int argc, char **argv) {
     FILE *out = fopen(outputFileName, "w"); //writes in output file
 
 
-    //da func will move later
+
 
 
     int *dragCar = (int *) malloc(10000 * sizeof(int));
