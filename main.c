@@ -7,6 +7,7 @@
 
 #include "functions.c"
 
+//Creates structure
 typedef struct {
     char name[100];
     char coefficient[20];
@@ -18,16 +19,18 @@ typedef struct {
 
 
 void main(int argc, char **argv) {
+
+    //allows input and output files to be called in ./a.out command
     char *inputFileName = argv[1];
-    char *outputFileName = argv[2];  //allows input and output files to be called in ./a.out command
+    char *outputFileName = argv[2];  
     printf("Processing text file [%s] . . . \n", inputFileName);
 
-    FILE *f = fopen(inputFileName, "r"); //reads input file
-    FILE *out = fopen(outputFileName, "w"); //writes in output file
+    //reads input file and writes output file
+    FILE *f = fopen(inputFileName, "r"); 
+    FILE *out = fopen(outputFileName, "w");
 
+    //Declares strings, integers, and arrays
     int *areaCars = (int *) malloc(10000 * sizeof(int));
-
-    //Declares strings and integers
     char buffer[100];
     char *line = fgets(buffer, 100, f);
     int totLines = 0;
@@ -36,7 +39,9 @@ void main(int argc, char **argv) {
     const int m = 1000;
     Car c[m];
 
+
     while(line != NULL) {
+
         //Removes \n from the end of the string
         int n = strlen(buffer); 
         if(buffer[n-1] == '\n'){
@@ -71,7 +76,6 @@ void main(int argc, char **argv) {
         i = i + 1;
     }
 
-
     printf("--- completed reading %d lines of data\n", totLines);
     printf("Computing the power requirements at 60 mph, 70 mph, and 80 mph ...\nWriting out all automobiles that have a positive drag area to output file %s ... \n", outputFileName);
     printf("--- completed writing %d lines\n", areaLines);
@@ -88,6 +92,7 @@ void main(int argc, char **argv) {
                 }   
         }
 
+    //closes both files
     fclose(f);
-    fclose(out);  //closes both files
+    fclose(out);  
     }
