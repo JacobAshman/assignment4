@@ -26,10 +26,7 @@ void main(int argc, char **argv) {
 
 
     //da func will move later
-    double power(double speed, double coef, double dragArea) {
-        double force = coef * .5 * 1.18 * speed * speed *dragArea;
-        return force * speed;
-    }
+
 
     int *dragCar = (int *) malloc(10000 * sizeof(int));
 
