@@ -40,14 +40,14 @@ void main(int argc, char **argv) {
             buffer[n-1] = '\0';
         }
 
-        char *name = strtok(line, ",");
+        char *nameToken = strtok(line, ",");
         char *coefficientToken = strtok(NULL, ",");
         char *areaToken = strtok(NULL, ",");
         double coefficient = atof(coefficientToken);
         double area = atof(areaToken);
 
         if(area != -1) {
-            strcpy(c[i].name, name);
+            strcpy(c[i].name, nameToken);
             strcpy(c[i].coefficient, coefficientToken);
             strcpy(c[i].area, areaToken);
             c[i].mph60[i] = power(26.8224, coefficient, area);
